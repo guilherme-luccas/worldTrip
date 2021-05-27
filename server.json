@@ -1,0 +1,47 @@
+{
+  "continentes": [
+    {
+      "id": 1,
+      "name": "América do norte",
+      "top100cities": 8,
+      "countries": 3,
+      "languages": 3
+    },
+    {
+      "id": 2,
+      "name": "Europa",
+      "top100cities": 27,
+      "countries": 50,
+      "languages": 60
+    },
+    {
+      "id": 3,
+      "name": "América do sul",
+      "top100cities": 4,
+      "countries": 36,
+      "languages": 2
+    },
+    {
+      "id": 4,
+      "name": "Asia",
+      "top100cities": 15,
+      "countries": 45,
+      "languages": 15
+    },
+    {
+      "id": 5,
+      "name": "Africa",
+      "top100cities": 6,
+      "countries": 54,
+      "languages": 8
+    },
+    {
+      "id": 6,
+      "name": "América do norte",
+      "top100cities": 2,
+      "countries": 14,
+      "languages": 4
+    }
+  ],
+  "cities": {}
+}
