@@ -1,17 +1,35 @@
 import { Box, Flex, SimpleGrid, Text } from "@chakra-ui/layout";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BannerContinent from "../components/BannerContinent";
 import CityCard from "../components/CityCard";
 import { Header } from "../components/Header";
-// import { api } from "../services/api";
+import { api } from "../services/api";
+import { Tooltip } from "@chakra-ui/react";
+
+import { InfoOutlineIcon } from "@chakra-ui/icons";
 
 export default function NorthAmerica() {
-  // const northAmerica = await api.get("/continentes/");
+  const [continente, setContinente] = useState({
+    name: "",
+    top100cities: 0,
+    countries: 0,
+    languages: 0,
+  });
+  useEffect(() => {
+    async function loadContinent() {
+      const northAmerica = await api.get("/continentes/1");
+      const northAmericaData = northAmerica.data;
 
+      // console.log(data);
+      setContinente(northAmericaData);
+    }
+    loadContinent();
+  }, []);
+  // console.log(continente.name);
   return (
     <>
       <Header isVisible={true} />
-      <BannerContinent img="./nyc.jpg">America do norte</BannerContinent>
+      <BannerContinent img="./nyc.jpg">{continente.name}</BannerContinent>
       <Flex w="1160px" mx="auto" mt="80px">
         <Box>
           <Text
@@ -30,21 +48,30 @@ export default function NorthAmerica() {
           <Flex w="600px" h="160px" justify="space-around" alignItems="center">
             <Flex flexDirection="column" textAlign="center">
               <Text fontSize="48px" color="yellow.300" fontWeight="bold">
-                3
+                {continente.countries}
               </Text>
               <Text color="#47585B">países</Text>
             </Flex>
             <Flex flexDirection="column" textAlign="center">
               <Text fontSize="48px" color="yellow.300" fontWeight="bold">
-                3
+                {continente.languages}
               </Text>
               <Text color="#47585B">línguas</Text>
             </Flex>
             <Flex flexDirection="column" textAlign="center">
               <Text fontSize="48px" color="yellow.300" fontWeight="bold">
-                8
+                {continente.top100cities}
               </Text>
-              <Text color="#47585B">cidades +100</Text>
+              <Text color="#47585B">
+                cidades +100
+                <Tooltip
+                  hasArrow
+                  label="As cidades +100 são as cidades que aquele continente possui que estão entre as 100 cidades mais visitadas do mundo."
+                  aria-label="A tooltip"
+                >
+                  <InfoOutlineIcon fontSize="11" ml="2" />
+                </Tooltip>
+              </Text>
             </Flex>
           </Flex>
         </Box>
