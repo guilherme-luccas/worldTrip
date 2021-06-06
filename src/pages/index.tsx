@@ -2,14 +2,20 @@ import { Image } from "@chakra-ui/image";
 import { Text, Box, Stack, Flex } from "@chakra-ui/layout";
 import { Header } from "../components/Header";
 import { TravelTypes } from "../components/TravelTypes";
-import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper/core";
+import { SlideContent } from "../components/SlideContent";
+import { useEffect, useState } from "react";
+import { api } from "../services/api";
 
 SwiperCore.use([Navigation]);
 
 export default function Home() {
+  const [continentes, setContinentes] = useState([]);
+  useEffect(() => {
+    api.get("continentes").then((response) => setContinentes(response.data));
+  }, []);
   return (
     <>
       <Header isVisible={false} />
@@ -65,49 +71,18 @@ export default function Home() {
       ></Box>
       <Box w="1240px" h="450" mx="auto" mt="90px">
         <Swiper navigation>
-          <SwiperSlide>
-            <Flex
-              w="1240px"
-              h="450"
-              bgImage="northAmerica.jpg"
-              bgSize="cover"
-              bgPosition="center"
-              alt="america do norte"
-              justify="center"
-              alignItems="center"
-              flexDirection="column"
-            >
-              <Link href="/northAmerica">
-                <Text fontWeight="bold" fontSize="50px" cursor="pointer">
-                  América do Norte
-                </Text>
-              </Link>
-
-              <Text color="black" fontSize="30px">
-                Riqueza natural
-              </Text>
-            </Flex>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image w="1240px" h="450" src={"europe.jpg"} alt="europa" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              w="1240px"
-              h="450"
-              src={"southAmerica.jpg"}
-              alt="america do sul"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image w="1240px" h="450" src={"asia.jpg"} alt="asia" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image w="1240px" h="450" src={"africa.jpg"} alt="africa" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image w="1240px" h="450" src={"oceania.jpg"} alt="oceania" />
-          </SwiperSlide>
+          {continentes.map((continente) => (
+            <SwiperSlide>
+              <SlideContent
+                image={continente.image}
+                bgPosition={continente.bgPosition}
+                title={continente.title}
+                description={continente.description}
+                alt={continente.alt}
+                href={continente.href}
+              />
+            </SwiperSlide>
+          ))}
           ...
         </Swiper>
       </Box>

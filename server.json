@@ -5,42 +5,78 @@
       "name": "América do norte",
       "top100cities": 8,
       "countries": 3,
-      "languages": 3
+      "languages": 3,
+      "image": "northAmerica.jpg",
+      "bgPosition": "center",
+      "title": "América do norte",
+      "description": "Riqueza natural",
+      "alt": "america do norte",
+      "href": "northAmerica"
     },
     {
       "id": 2,
       "name": "Europa",
       "top100cities": 27,
       "countries": 50,
-      "languages": 60
+      "languages": 60,
+      "image": "europe.jpg",
+      "bgPosition": "bottom",
+      "title": "Europa",
+      "description": "O continente mais antigo",
+      "alt": "europa",
+      "href": "europa"
     },
     {
       "id": 3,
       "name": "América do sul",
       "top100cities": 4,
       "countries": 36,
-      "languages": 2
+      "languages": 2,
+      "image": "southAmerica.jpg",
+      "bgPosition": "center",
+      "title": "América do sul",
+      "description": "As melhores experiências",
+      "alt": "america do sul",
+      "href": "southAmerica"
     },
     {
       "id": 4,
       "name": "Asia",
       "top100cities": 15,
       "countries": 45,
-      "languages": 15
+      "languages": 15,
+      "image": "asia.jpg",
+      "bgPosition": "center",
+      "title": "Ásia",
+      "description": "Muitas culturas",
+      "alt": "asia",
+      "href": "asia"
     },
     {
       "id": 5,
       "name": "Africa",
       "top100cities": 6,
       "countries": 54,
-      "languages": 8
+      "languages": 8,
+      "image": "africa.jpg",
+      "bgPosition": "center",
+      "title": "África",
+      "description": "As primeiras histórias",
+      "alt": "africa",
+      "href": "africa"
     },
     {
       "id": 6,
       "name": "América do norte",
       "top100cities": 2,
       "countries": 14,
-      "languages": 4
+      "languages": 4,
+      "image": "oceania.jpg",
+      "bgPosition": "center",
+      "title": "Oceania",
+      "description": "Terras exóticas",
+      "alt": "oceania",
+      "href": "oceania"
     }
   ],
   "cities": {}
