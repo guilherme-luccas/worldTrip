@@ -8,10 +8,13 @@ import SwiperCore, { Navigation } from "swiper/core";
 import { SlideContent } from "../components/SlideContent";
 import { useEffect, useState } from "react";
 import { api } from "../services/api";
+import { useBreakpointValue } from "@chakra-ui/react";
 
 SwiperCore.use([Navigation]);
 
 export default function Home() {
+  const hiddenMobile = useBreakpointValue({ base: true, md: false });
+
   const [continentes, setContinentes] = useState([]);
   useEffect(() => {
     api.get("continentes").then((response) => setContinentes(response.data));
@@ -28,21 +31,21 @@ export default function Home() {
       >
         <Flex
           textAlign="left"
-          w="50%"
+          w={["100%", "100%", "50%"]}
           justifyContent="center"
           alignItems="center"
         >
           <Box>
-            <Text fontSize="36px">
+            <Text fontSize={["30px", "30px", "36px"]}>
               5 Continentes, <br /> infinitas possibilidades.
             </Text>
-            <Text fontSize="20px" mt="6">
+            <Text fontSize={["14px", "14px", "20px"]} mt="6">
               Chegou a hora de tirar do papel a viagem que você
               <br /> sempre sonhou.
             </Text>
           </Box>
         </Flex>
-        <Box w="50%" position="relative">
+        <Box w="50%" position="relative" hidden={hiddenMobile}>
           <Image
             src={"Airplane.png"}
             alt="aviao"
@@ -53,8 +56,17 @@ export default function Home() {
           />
         </Box>
       </Flex>
-      <Box w="100%" maxWidth={1160} h="145px" mx="auto" mt="90px">
-        <Stack direction="row" justify="space-between">
+      <Box
+        w={["375px", "100%"]}
+        maxWidth={1160}
+        h={["100%", "100%", "145px"]}
+        mx="auto"
+        mt={["10px", "10px", "90px"]}
+      >
+        <Stack
+          direction={["column", "column", "row"]}
+          justify={["center", "space-between"]}
+        >
           <TravelTypes img="cocktail.png">vida noturna</TravelTypes>
           <TravelTypes img="surf.png">praia</TravelTypes>
           <TravelTypes img="building.png">moderno</TravelTypes>
@@ -66,10 +78,17 @@ export default function Home() {
         w="90px"
         h="90px"
         borderBottomWidth="2px"
-        borderBottomColor="#47585B  "
+        borderBottomColor="#47585B"
         mx="auto"
+        hidden={hiddenMobile}
       ></Box>
-      <Box w="1240px" h="450" mx="auto" mt="90px">
+      <Box
+        w={["375px", "100%"]}
+        h={["250px", "450px"]}
+        mx="auto"
+        mt={["20px", "20px", "90px"]}
+        maxWidth={1160}
+      >
         <Swiper navigation>
           {continentes.map((continente) => (
             <SwiperSlide>

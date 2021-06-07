@@ -4,7 +4,7 @@ import BannerContinent from "../components/BannerContinent";
 import CityCard from "../components/CityCard";
 import { Header } from "../components/Header";
 import { api } from "../services/api";
-import { Tooltip } from "@chakra-ui/react";
+import { Tooltip, useBreakpointValue } from "@chakra-ui/react";
 
 import { InfoOutlineIcon } from "@chakra-ui/icons";
 
@@ -30,14 +30,20 @@ export default function NorthAmerica() {
     <>
       <Header isVisible={true} />
       <BannerContinent img="./nyc.jpg">{continente.name}</BannerContinent>
-      <Flex w="1160px" mx="auto" mt="80px">
+      <Flex
+        w={["100%", "100%", "768px", "1160px"]}
+        mx="auto"
+        mt="80px"
+        flexDirection={["column", "column", "row"]}
+      >
         <Box>
           <Text
             color="#47585B"
-            w="600px"
+            w={["100%", "600px"]}
             h="180px"
-            fontSize="24px"
+            fontSize={["16px", "24px"]}
             textAlign="justify"
+            p="4"
           >
             A América do Norte reúne países com características bem distintas e
             com muita diversidade cultural. Conheça o que os destinos na América
@@ -45,7 +51,12 @@ export default function NorthAmerica() {
           </Text>
         </Box>
         <Box>
-          <Flex w="600px" h="160px" justify="space-around" alignItems="center">
+          <Flex
+            w={["100%", "600px"]}
+            h="160px"
+            justify="space-around"
+            alignItems="center"
+          >
             <Flex flexDirection="column" textAlign="center">
               <Text fontSize="48px" color="yellow.300" fontWeight="bold">
                 {continente.countries}
@@ -76,11 +87,16 @@ export default function NorthAmerica() {
           </Flex>
         </Box>
       </Flex>
-      <Box w="1160px" mx="auto" mt="90px" mb="100px">
-        <Text color="#47585B" mb="40px" fontSize="40px">
+      <Box w={["100%", "100%", "1160px"]} mx="auto" mt="90px" mb="100px">
+        <Text
+          color="#47585B"
+          mb="40px"
+          fontSize="40px"
+          textAlign={["center", "left"]}
+        >
           Cidades +100
         </Text>
-        <SimpleGrid columns={4} gap="4">
+        <SimpleGrid justifyItems="center" columns={[1, 2, 4]} gap="4">
           <CityCard
             cityName="Nova Iorque"
             country="E.U.A"

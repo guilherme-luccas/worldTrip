@@ -23,7 +23,7 @@ export function Header({ isVisible = false }: HeaderProps) {
             as={RiArrowLeftSLine}
             color="black"
             position="absolute"
-            left="135px"
+            left="7.03vw"
             fontSize="22px"
             cursor="pointer"
           />

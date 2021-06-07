@@ -9,8 +9,7 @@ export default function BannerContinent({ img, children }: TravelTypesProps) {
   return (
     <>
       <Flex
-        w="1440px"
-        h="500px"
+        w="100%"
         bgImage={img}
         bgSize=""
         bgPosition="center"

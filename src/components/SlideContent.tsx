@@ -22,8 +22,8 @@ export function SlideContent({
   return (
     <>
       <Flex
-        w="1240px"
-        h="450"
+        w={["375px", "100%"]}
+        h={["250", "450"]}
         bgImage={image}
         bgSize="cover"
         bgPosition={bgPosition}
@@ -33,12 +33,17 @@ export function SlideContent({
         flexDirection="column"
       >
         <Link href={`/${href}`}>
-          <Text fontWeight="bold" fontSize="50px" cursor="pointer">
+          <Text
+            color="black"
+            fontWeight="bold"
+            fontSize={["20px", "50px"]}
+            cursor="pointer"
+          >
             {title}
           </Text>
         </Link>
 
-        <Text color="black" fontSize="30px">
+        <Text color="black" fontSize={["15px", "30px"]}>
           {description}
         </Text>
       </Flex>
